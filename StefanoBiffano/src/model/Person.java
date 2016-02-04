@@ -4,9 +4,6 @@ public class Person {
 	protected String socialSecurityNumber;
 	protected String firstName, lastName;
 	
-	public Person (String ssn) {
-		ssn = socialSecurityNumber;
-	}
 	public Person(String ssn, String fName, String lName) {
 		ssn = socialSecurityNumber;
 		fName = firstName;

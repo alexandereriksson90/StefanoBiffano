@@ -1,14 +1,24 @@
 package tests;
 
 import static org.junit.Assert.*;
-
+import org.junit.Before;
 import org.junit.Test;
 
-public class TestCommitment {
+import model.CourseInstance;
 
+public class TestCommitment 
+{
+
+	@Before
+	public void setUp()
+	{
+		CourseInstance instance;
+	}
+	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testGetCourses() 
+	{
+		
 	}
 
 }
