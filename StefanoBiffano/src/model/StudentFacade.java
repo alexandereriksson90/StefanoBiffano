@@ -44,7 +44,7 @@ public class StudentFacade implements RoleFacade
 
 	public void registerToCourseInstance(CourseInstance courseInstance)
 	{
-		courseInstance.addCommitment(new Commitment(Role.STUDENT, this.student, courseInstance.getCourse().getCourseID()));
+		courseInstance.addCommitment(new Commitment(Role.STUDENT, student, courseInstance.getCourse().getCourseID()));
 	}
 
 	public void unregisterFromCourseInstance(CourseInstance courseInstance)
@@ -52,6 +52,18 @@ public class StudentFacade implements RoleFacade
 		courseInstance.removeCommitment(seeCommitment(courseInstance));
 	}
 
+	public LinkedList<CourseInstance> seeRegistrations(CourseInstanceList courseInstanceList)
+	{
+		LinkedList<CourseInstance> courses = new LinkedList<CourseInstance>();
+		
+		for(CourseInstance ci : courseInstanceList.getCourseInstances())
+		{
+			if(seeCommitment(ci) != null)
+				courses.add(ci);
+		}
+		return courses;
+	}
+	
 	public Commitment seeCommitment(CourseInstance courseInstance)
 	{
 		Commitment studentCommitment = null;

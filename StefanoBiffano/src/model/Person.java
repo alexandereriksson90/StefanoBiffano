@@ -1,13 +1,13 @@
 package model;
 
 public class Person {
-	protected String socialSecurityNumber;
-	protected String firstName, lastName;
+	private String socialSecurityNumber;
+	private String firstName, lastName;
 	
-	public Person(String ssn, String fName, String lName) {
-		ssn = socialSecurityNumber;
-		fName = firstName;
-		lName = lastName;
+	public Person(String ssn, String firstName, String lastName) {
+		socialSecurityNumber = ssn;
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 
 	public String getFirstName() {

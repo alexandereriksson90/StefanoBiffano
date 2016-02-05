@@ -20,10 +20,15 @@ public class CourseInstance
 		this.regCode = regCode;
 		this.examinator = examinator;
 		this.courseCoordinator = courseCoordinator;
+		commitments = new LinkedList<Commitment>();
 		commitments.add(new Commitment(Role.COURSECOORDINATOR, courseCoordinator,course.getCourseID()));
 		commitments.add(new Commitment(Role.EXAMINATOR, examinator,course.getCourseID()));
 	}
-
+	public String getRegCode()
+	{
+		return regCode;
+	}
+	
 	public String getCoursePeriod()
 	{
 		return coursePeriod;

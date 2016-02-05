@@ -23,5 +23,10 @@ public class Commitment {
 	public String getCourseID() {
 		return courseID;
 	}
+	@Override
+	public String toString()
+	{
+		return role.toString() + " " + person.getFirstName()+ " " + person.getLastName() + " " + courseID;	
+	}
 
 }
