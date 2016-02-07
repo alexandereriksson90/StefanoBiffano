@@ -5,9 +5,9 @@ public class Course
 	private String courseID;
 	private String courseName;
 	
-	public Course(String courseCode, String courseName)
+	public Course(String courseID, String courseName)
 	{
-		this.courseID = courseCode;
+		this.courseID = courseID;
 		this.courseName = courseName;
 	}
 	

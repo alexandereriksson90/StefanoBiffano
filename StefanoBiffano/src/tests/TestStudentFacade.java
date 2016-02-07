@@ -27,7 +27,6 @@ public class TestStudentFacade
 		instances = new CourseInstanceList(courseList);
 		expectedInstance = new CourseInstance("jh232o", courseList.getCourses().get(0),
 				new Person("760516-7636", "Per", "Ek"), new Person("800212-5666", "Alexander", "Larsson"));
-
 	}
 
 	@Test
@@ -36,7 +35,6 @@ public class TestStudentFacade
 		student.registerToCourseInstance(instances.getCourseInstances().get(0));
 		assertEquals(expectedInstance.getCourse().getCourseName(),
 				student.seeRegistrations(instances).get(0).getCourse().getCourseName());
-
 	}
 
 	@Test

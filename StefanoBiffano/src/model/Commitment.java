@@ -9,7 +9,6 @@ public class Commitment {
 		this.person = person;
 		this.courseID = courseID;
 		this.role = role;
-		
 	}
 	
 	public Role getRole() {
