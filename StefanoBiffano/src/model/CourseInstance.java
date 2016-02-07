@@ -6,8 +6,7 @@ public class CourseInstance
 {
 	private LinkedList<Commitment> commitments;
 	private Course course;
-	
-
+	private LinkedList<StudentGrade> studentgrades;
 	private String regCode;
 	private String coursePeriod;
 	private Person examinator;
@@ -20,6 +19,7 @@ public class CourseInstance
 		this.regCode = regCode;
 		this.examinator = examinator;
 		this.courseCoordinator = courseCoordinator;
+		studentgrades = new LinkedList<StudentGrade>();
 		commitments = new LinkedList<Commitment>();
 		commitments.add(new Commitment(Role.COURSECOORDINATOR, courseCoordinator,course.getCourseID()));
 		commitments.add(new Commitment(Role.EXAMINATOR, examinator,course.getCourseID()));
@@ -81,13 +81,31 @@ public class CourseInstance
 		this.courseCoordinator = courseCoordinator;
 	}
 
-	public void setExaminator(Person examinator) {
+	public void setExaminator(Person examinator) 
+	{
 		this.examinator = examinator;
 	}
 	
 	public Course getCourse()
 	{
 		return course;
+	}
+	public void removeStudentGrade(Person student) 
+	{
+		for(StudentGrade sg: studentgrades)
+		{
+			if(sg.getStudent() == student)
+				studentgrades.remove(student);
+		}
+		
+	}
+	public LinkedList<StudentGrade> getStudentgrades() 
+	{
+		return studentgrades;
+	}
+	public void addStudentgrade(StudentGrade studentgrade) 
+	{
+		studentgrades.add(studentgrade);
 	}
 
 }

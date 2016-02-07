@@ -1,20 +1,16 @@
 package tests;
 
 import static org.junit.Assert.*;
-
-import java.util.LinkedList;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import model.Commitment;
-import model.Course;
 import model.CourseInstance;
 import model.CourseInstanceList;
 import model.CourseList;
 import model.Person;
 import model.Role;
-import model.StudentFacade;
+import facade.StudentFacade;
+import facade.UnauthorizedMethodException;
 
 public class TestStudentFacade
 {
@@ -62,7 +58,7 @@ public class TestStudentFacade
 	}
 
 	@Test
-	public void testgetCourses()
+	public void testGetCourses()
 	{
 		assertEquals(courseList.getCourses().get(0).getCourseID(),
 				student.getCourses().getCourses().get(0).getCourseID());
@@ -77,23 +73,30 @@ public class TestStudentFacade
 	}
 
 	@Test
-	public void testgetTeachers()
+	public void testGetTeachers()
 	{
-		instances.getCourseInstances().get(0).addCommitment(
-				new Commitment(Role.TEACHER, new Person("800212-5666", "Mats", "Karlsson"),courseList.getCourses().get(0).getCourseID()));
-		assertEquals("800212-5666",student.getTeachers(instances.getCourseInstances().get(0)).get(0).getSocialSecurityNumber());
+		instances.getCourseInstances().get(0).addCommitment(new Commitment(Role.TEACHER,
+				new Person("800212-5666", "Mats", "Karlsson"), courseList.getCourses().get(0).getCourseID()));
+		assertEquals("800212-5666",
+				student.getTeachers(instances.getCourseInstances().get(0)).get(0).getSocialSecurityNumber());
 	}
 
 	@Test
-	public void testgetExaminator()
+	public void testGetExaminator()
 	{
-		assertEquals("Alexander",student.getExaminator(instances.getCourseInstances().get(0)).getFirstName());
+		assertEquals("Alexander", student.getExaminator(instances.getCourseInstances().get(0)).getFirstName());
 	}
 
 	@Test
-	public void testgetCourseCoordinator()
+	public void testGetCourseCoordinator()
 	{
-		assertEquals("Per",student.getCourseCoordinator(instances.getCourseInstances().get(0)).getFirstName());
+		assertEquals("Per", student.getCourseCoordinator(instances.getCourseInstances().get(0)).getFirstName());
+	}
+
+	@Test(expected = UnauthorizedMethodException.class)
+	public void testIndexOutOfBoundsException()
+	{
+		student.getStudentGrades(instances.getCourseInstances().get(0));
 	}
 
 }

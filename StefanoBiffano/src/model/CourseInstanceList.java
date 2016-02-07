@@ -32,12 +32,12 @@ public class CourseInstanceList
 		return courseInstanceList;
 	}
 
-	void addCourseInstance(CourseInstance courseInstance)
+	public void addCourseInstance(CourseInstance courseInstance)
 	{
 		courseInstanceList.add(courseInstance);
 	}
 
-	void removeCourseInstance(CourseInstance courseInstance)
+	public void removeCourseInstance(CourseInstance courseInstance)
 	{
 		courseInstanceList.remove(courseInstance);
 	}
